@@ -171,8 +171,10 @@ function count_characters_activate()
   find_replace_templatesets('newthread', '#' . preg_quote('{$codebuttons}') . '#', '{$codebuttons}{$charactercounter}');
   find_replace_templatesets('newreply', '#' . preg_quote('{$footer}') . '#', '<script type="text/javascript" src="{$mybb->asset_url}/jscripts/count_characters.js"></script>{$footer}');
   find_replace_templatesets('editpost', '#' . preg_quote('{$footer}') . '#', '<script type="text/javascript" src="{$mybb->asset_url}/jscripts/count_characters.js"></script>{$footer}');
+  find_replace_templatesets('newthread', '#' . preg_quote('{$footer}') . '#', '<script type="text/javascript" src="{$mybb->asset_url}/jscripts/count_characters.js"></script>{$footer}');  
   find_replace_templatesets('showthread_quickreply', '#' . preg_quote('<div class="editor_control_bar"') . '#', '{$charactercounter}<div class="editor_control_bar"');
   find_replace_templatesets('showthread_quickreply', '#' . preg_quote('</form>') . '#', '</form><script type="text/javascript" src="{$mybb->asset_url}/jscripts/count_characters.js"></script>');
+
 }
 
 function count_characters_deactivate()
@@ -215,7 +217,7 @@ function count_characters_settings_peek(&$peekers)
 }
 
 //MAIN FUNCTION
-$plugins->add_hook('newthread_start', 'count_characters_main');
+$plugins->add_hook('newthread_end', 'count_characters_main');
 $plugins->add_hook('newreply_end', 'count_characters_main');
 $plugins->add_hook("showthread_start", "count_characters_main");
 $plugins->add_hook('editpost_end', 'count_characters_main');
