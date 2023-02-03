@@ -14,7 +14,6 @@ $(document).ready(function () {
       //kriegen wir 0, soll keine Mindestzeichenzahl angezeigt werden
       length = data[0].length;
       htmlsetting = data[0].htmlsetting;
-      console.log(htmlsetting + "settingist")
       if (data[0].length != 0) {
         //ungleich null, also einmal den string speichern
         lengthstr = "von " + data[0].length + " Zeichen ";
@@ -39,6 +38,7 @@ $(document).ready(function () {
       var space = $(this).val().replace(/(<([^>]+)>)/ig, "").length;
       
       //Wörter zählen
+      //funktioniert noch nicht ganz richtig schmeißt, den code raus, aber zählt 2 Leertasten -> also ein wort 
       var words = $(this).val().replace(/(<([^>]+)>)/ig, "").split(' ').length;
       // var words = $(this).val().split(' ').length;
       //Zeichen ohne Leerzeichen
@@ -46,7 +46,6 @@ $(document).ready(function () {
     }
 
     //Wenn nicht genug zeichen getippt sind, klasse zum stylen hinzufügen
-    // console.log ("space ist" + space + "lenth ist"+length )
     if (space < length) {
       $('#cc_chars').addClass("cc_toless");
     } else {
