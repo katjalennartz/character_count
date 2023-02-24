@@ -254,7 +254,7 @@ function count_characters_main()
     $parentlist = get_parent_list($thisfid);
     if (strpos($fids, ",") === false) {
 
-      if (strpos("," . $parentlist . ",", "," . $fid . ",") !== false) {
+      if (strpos("," . $parentlist . ",", "," . $fids . ",") !== false) {
         eval("\$charactercounter = \"" . $templates->get("count_characters_counter") . "\";");
       }
     } else {
