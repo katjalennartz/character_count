@@ -201,7 +201,7 @@ function count_characters_settings_change()
 
   $result = $db->simple_select("settinggroups", "gid", "name='count_characters'", array("limit" => 1));
   $group = $db->fetch_array($result);
-  $count_characters_settings_peeker = ($mybb->input['gid'] == $group['gid']) && ($mybb->request_method != 'post');
+  $count_characters_settings_peeker = ($mybb->get_input('gid') == $group['gid']) && ($mybb->request_method != 'post');
 }
 
 $plugins->add_hook("admin_settings_print_peekers", "count_characters_settings_peek");
