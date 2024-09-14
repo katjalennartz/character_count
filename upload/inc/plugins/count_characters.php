@@ -225,7 +225,11 @@ $plugins->add_hook('editpost_end', 'count_characters_main');
 function count_characters_main()
 {
   global $db, $mybb, $templates, $fid, $charactercounter;
-
+  $cc_nospace = "";
+  $cc_chars = ""; 
+  $cc_words = "";
+  $parentlist = "";
+  $charactercounter ="";
   //Einstellungen bekommen
   //in welchem forum befinden wir uns?
   $thisfid = $fid;
