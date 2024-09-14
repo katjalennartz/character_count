@@ -229,6 +229,7 @@ function count_characters_main()
   $cc_chars = ""; 
   $cc_words = "";
   $parentlist = "";
+  $fidflag = false;
   $charactercounter ="";
   //Einstellungen bekommen
   //in welchem forum befinden wir uns?
